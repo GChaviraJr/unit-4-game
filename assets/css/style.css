@@ -24,15 +24,15 @@ header {
 .ranNum {
     background-color: green;
     color: black;
-    height: 70px;
+    height: 150px;
     width: 150px;
     font-size: 24pt;
 }
 
 .winLossBox {
     background-color: rgb(35, 206, 203);
-    height: 70px;
-    width: 50px;
+    height: 150px;
+    width: 75px;
     margin-left: 10px;
 }
 
@@ -47,6 +47,6 @@ header {
 .bottomScoreBox {
     background-color: rgb(33, 96, 72);
     color: white;
-    height: 100px;
+    height: 150px;
     width: 150px;
 }
