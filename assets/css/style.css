@@ -4,6 +4,7 @@ html {
 
 header {
     background-color: orange;
+    color: white;
     font-size: 30pt;
     height: 50px;
     width: 325px; 
@@ -13,8 +14,9 @@ header {
     background-color: rgb(223, 191, 152);
     color: green;
     width: 450px;
-    height: 230px;
+    height: 400px;
     margin-bottom: 5px; 
+    font-size: 15pt;
 }
 
 .numberScore {
@@ -30,7 +32,7 @@ header {
 }
 
 .winLossBox {
-    background-color: rgb(35, 206, 203);
+    background-color: red;
     height: 150px;
     width: 100px;
     margin-left: 10px;
@@ -38,6 +40,8 @@ header {
 
 button {
    width: 20%;
+   margin-bottom: 5px;
+   margin-top: 5px;
    
 }
 
@@ -54,4 +58,5 @@ button {
     color: white;
     height: 150px;
     width: 150px;
+    font-size: 25pt;
 }
