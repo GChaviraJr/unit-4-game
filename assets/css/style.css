@@ -32,8 +32,13 @@ header {
 .winLossBox {
     background-color: rgb(35, 206, 203);
     height: 150px;
-    width: 75px;
+    width: 100px;
     margin-left: 10px;
+}
+
+button {
+   width: 20%;
+   
 }
 
 .aboveScoreBox {

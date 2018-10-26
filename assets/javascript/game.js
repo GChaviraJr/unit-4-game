@@ -1,82 +1,92 @@
-// Crytals random number generator 1-12 - CONSOLE LOG
+
 $(document).ready(function() {
 
 
-    function generateRandomNumber(min, max) {
+ function generateRandomNumber(min, max) {
         return parseInt(Math.floor(Math.random() * (max - min)) + min);
     }
-    
-    var randomNumber = generateRandomNumber(18, 120);
 
-    $("#randomNumber").text(randomNumber);
-
-    totalScore = 0;
-    $("#totalScore").text(totalScore);
-    console.log(totalScore, randomNumber);
-
+    var randomNumber = generateRandomNumber(19, 120);
     var wins = 0;
     var losses = 0;
-    $('#wins').text(wins);
-    $('#losses').text(losses);
+    var redCrystal = generateRandomNumber(1, 12);
+    var blueCrystal = generateRandomNumber(1, 12);
+    var yellowCrystal = generateRandomNumber(1, 12);
+    var greenCrystal = generateRandomNumber(1, 12);
+    var totalScore = 0;
 
-    var numberOptions = 0;
-
-    var crystalValueArray = [];
-    for (var i = 1; i < 5; i++) {
-        var imageCrystal = $("#crystal" + [i]);
-        imageCrystal.attr("dataCrystalValue", generateRandomNumber(1, 12));
-        $("#crystals").append(imageCrystal);
-    }
     
-    var crystalValue = ($(this).attr("dataCrystalValue"));
-    crystalValue = parseInt(crystalValue);
-    totalScore += crystalValue;
+    function crystalValues() {
+        redCrystal = generateRandomNumber(1, 12);
+        blueCrystal = generateRandomNumber(1, 12);
+        yellowCrystal = generateRandomNumber(1, 12);
+        greenCrystal = generateRandomNumber(1, 12);
+    }
 
-    $("totalScore").text(totalScore);
-    if (totalScore === randomNumber) {
-        wins++;
-        $("#wins").text(wins);
-        randomNumber = generateRandomNumber(18, 120);
-        $("#randomNumber").text(totalScore);
-        for (var i = 1; i < 5; i++) {
-            var imageCrystal = $("#crystal" + [i]);
-            numberOptions = generateRandomNumber(1, 12);
-            imageCrystal.attr("dataCrystalValue", numberOptions);
-            $("#crystals").append(imageCrystal);
-    } else if (totalScore > targetNumber) {
+  $('.ranNum').text(randomNumber);
+
+  $('#totalScore').text(totalScore);
+
+    function reset() {
+        totalScore = 0;
+        crystalValues();
+    }
+
+    // Wins corner: Not sure why the wins works becuase it was not working
+    // But once I console logged it to debug the console log
+    // Fixed the issue. ???? PORQUE?!?!?!?!?!
+    
+    function gamePlay() {
+        if(totalScore === randomNumber) {
+            wins++;
+            $('#wins').text("Wins:" + " " + wins);
+            $('.winLoss').text('WINNER!');
+            console.log(wins);
+            randomNumber = generateRandomNumber(19, 120);
+            $('.ranNum').text(randomNumber);
+            $('#totalScore').text(totalScore);
+            reset();
+            $('#totalScore').text(totalScore);
+
+        } else if(totalScore > randomNumber) {
             losses++;
-            $("#randomNumber").text(losses);
-            randomNumber = generateRandomNumber(18, 120);
-            $("#randomNumber").text(randomNumber);
-            totalScore = 0;
-            $("#totalScore").text(totalScore);
-            for (var i = 1, i < 5; i++) {
-                var imageCrystal = $("#crystal" + [i]);
-                numberOptions = generateRandomNumber(1, 12);
-                imageCrystal.attr("dataCrystalValue", numberOptions);
-                $("#crystals").append(imagecrystal);
-            }
+            $('#losses').text("Losses:" + " " + losses);
+            $('.winLoss').text('FAILURE!!');
+            randomNumber = generateRandomNumber(19, 120);
+            $('.ranNum').text(randomNumber);
+            $('#totalScore').text(totalScore);
+            reset();
+            $('#totalScore').text(totalScore);
         }
     }
-
-
+    
+    
+    
+    $('#redCrystal').on('click', function() {
+        totalScore += redCrystal;
+        $('#totalScore').text(totalScore);
+        gamePlay();
+    });
+    
+    
+    $('#blueCrystal').on('click', function() {
+        totalScore += blueCrystal;
+        $('#totalScore').text(totalScore);
+        gamePlay();
+    });
+    
+    
+    $('#yellowCrystal').on('click', function() {
+        totalScore += yellowCrystal;
+        $('#totalScore').text(totalScore);
+        gamePlay();
+    });
+    
+    
+    $('#greenCrystal').on('click', function() {
+        totalScore += greenCrystal;
+        $('#totalScore').text(totalScore);
+        gamePlay();
+    });
 
 });
-
-
-
-
-// Random Number shown at Start of game 19-120 - CONSOLE LOG
-
-
-
-// click funcitons from user entering numbers
-
-
-
-// Restart game win player wins/ loses - CONSOLE LOG
-
-
-
-
-// Wins Losses shown - CONSOLE LOG
